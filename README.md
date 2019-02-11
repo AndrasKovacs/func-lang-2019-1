@@ -22,7 +22,7 @@
 
 #### Előzetes ismeretek
 
-- ELTE BSc-s "Funkcionális nyelvek" tárgy anyagának készség szintű ismerete. A [kezdő Haskell](http://lambda.inf.elte.hu/Index.xml) szekció átismétlése ajánlott.
+- Az ELTE BSc-s "Funkcionális nyelvek" tárgy anyagának készség szintű ismerete szükséges. A [kezdő Haskell](http://lambda.inf.elte.hu/Index.xml) szekció átismétlése ajánlott.
 
 #### Infrastruktúra
 
