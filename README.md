@@ -18,3 +18,7 @@
 - Minden előadás/gyakorlat után jegyzet elérhető lesz a [notes](notes) mappában.
 - Opcionális gyakorlófeladat szintén elérhető lesz minden gyakorlat után ebben a github repóban és BEAD-on.
 - Ajánlott irodalom: http://learnyouahaskell.com/chapters https://en.wikibooks.org/wiki/Haskell
+
+#### Előzetes ismeretek
+
+- ELTE BSc-s "Funkcionális nyelvek" tárgy anyagának ismerete. A [kezdő Haskell](http://lambda.inf.elte.hu/Index.xml) szekció átismétlése ajánlott. 
