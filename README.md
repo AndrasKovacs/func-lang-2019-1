@@ -23,7 +23,7 @@
 - IO monád
 - Monad transformer
 - Parser monád
-- Parser és interpreter egyszeű nyelvre
+- Parser és interpreter egyszerű nyelvre
 
 #### Anyagok
 
