@@ -13,6 +13,18 @@
 - Gyakorlat: minden héten (az első hét kivételével) 10 perces feladatmegoldás, BEAD-ban. Minden héten 0-2 pont kapható erre. A vizsgára jelentkezés feltétele 50% gyakorlati pont megszerzése.
 - Vizsga: vizsgaidőszakban, géptermi feladatmegoldás. A tárgyra kapott jegyet a vizsga határozza meg.
 
+#### Tematika
+
+- Algebrai adattípusok
+- Típusosztályok
+- Egyszerű osztályok: Eq, Ord, Show, Monoid
+- Functor, Foldable
+- Monad, egyes monádok: Reader, State, Maybe, lista
+- IO monád
+- Monad transformer
+- Parser monád
+- Parser és interpreter egyszeű nyelvre
+
 #### Anyagok
 
 - Minden előadás/gyakorlat után jegyzet elérhető lesz a [notes](notes) mappában.
