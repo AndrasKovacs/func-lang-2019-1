@@ -6,7 +6,7 @@
 - Konzultáció: kedd 17:30-19:00, 2.620 szoba.
 - Gyakorlati feladatok beadásának helye: https://bead.inf.elte.hu/
   + Ide regisztrálni kell ugyanazzal a névvel/jelszóval, mint amivel labor gépekbe lehet belépni, a gyakorlati csoportot pedig
-    majd felvenni. BEAD csoport még nincs jelenleg! Első héten várható.
+    majd felvenni.
     
 #### Követelmények
 
