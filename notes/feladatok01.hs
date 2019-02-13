@@ -1,17 +1,17 @@
 
--- Feladatok: függvények, ADT-k
---------------------------------------------------------------------------------
+-- 2. hét gyakorlati feladat témája: ADT-k, függvények.
 
 -- ajánlott online jegyzetek:
 --      http://lambda.inf.elte.hu/
 --           - Kezdő Haskell szekció:  magasabbrendű függvények
 --           - Haladó Haskell szekció: Típusdefiníciók
 
+-- Egy darab feladatot kell majd megoldani, ami a következő feladatok egyikéhez hasonló lesz.
+
 
 -- 1. Definiáld újra a lista típust ADT-ként, "List" néven. Írj egy
 --    "mapList :: (a -> b) -> List a -> List b", ami a lista minden elemére
 --    egy függvényt alkalmaz.
-
 
 data List a = Nil | Cons a (List a)
 
@@ -62,14 +62,12 @@ applyMany' fs a = map ($ a) fs
 --    az értékei nemüres listák. Írj egy "fromList :: [a] -> Maybe (NonEmptyList a)" függvényt,
 --    ami nemüres listát ad vissza egy standard listából, ha az input nem üres.
 
-
 -- egyszerű verzió
 type NonEmptyList a = (a, [a])
 
 fromList :: [a] -> Maybe (NonEmptyList a)
 fromList []     = Nothing
 fromList (a:as) = Just (a, as)
-
 
 -- ADT verzió
 data NonEmptyList' a = Single a | Cons' a (NonEmptyList' a)
