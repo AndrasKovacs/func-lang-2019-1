@@ -3,7 +3,7 @@
 #### Elérhetőségek
 
 - Kovács András, email: kovacsandras @ inf.elte.hu (szóközök nélkül).
-- Konzultáció: kedd 17:30-19:00, 2.620 szoba.
+- Konzultáció: hétfő 17:00-18:00, 2.620 szoba.
 - Feladatok beadásának helye: https://bead.inf.elte.hu/
   + Ide regisztrálni kell ugyanazzal a névvel/jelszóval, mint amivel labor
     gépekbe lehet belépni, a gyakorlati csoportot pedig felvenni.
