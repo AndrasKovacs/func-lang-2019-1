@@ -1,12 +1,9 @@
 
--- 2. hét gyakorlati feladat témája: ADT-k, függvények.
 
 -- ajánlott online jegyzetek:
 --      http://lambda.inf.elte.hu/
 --           - Kezdő Haskell szekció:  magasabbrendű függvények
 --           - Haladó Haskell szekció: Típusdefiníciók
-
--- Egy darab feladatot kell majd megoldani, ami a következő feladatok egyikéhez hasonló lesz.
 
 
 -- 1. Definiáld újra a lista típust ADT-ként, "List" néven. Írj egy
