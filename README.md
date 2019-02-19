@@ -4,14 +4,17 @@
 
 - Kovács András, email: kovacsandras @ inf.elte.hu (szóközök nélkül).
 - Konzultáció: kedd 17:30-19:00, 2.620 szoba.
-- Gyakorlati feladatok beadásának helye: https://bead.inf.elte.hu/
-  + Ide regisztrálni kell ugyanazzal a névvel/jelszóval, mint amivel labor gépekbe lehet belépni, a gyakorlati csoportot pedig
-    majd felvenni.
-    
+- Feladatok beadásának helye: https://bead.inf.elte.hu/
+  + Ide regisztrálni kell ugyanazzal a névvel/jelszóval, mint amivel labor
+    gépekbe lehet belépni, a gyakorlati csoportot pedig felvenni.
+
 #### Követelmények
 
-- Gyakorlat: minden héten (az első hét kivételével) 10 perces feladatmegoldás, BEAD-ban. Minden héten 0-2 pont kapható erre. A vizsgára jelentkezés feltétele 50% gyakorlati pont megszerzése.
-- Vizsga: vizsgaidőszakban, géptermi feladatmegoldás. A tárgyra kapott jegyet a vizsga határozza meg.
+- Gyakorlat: minden gyakorlat utáni napon (szerda) házi feladat kiírva BEAD-on,
+  a leadási határidő a következő utáni gyakorlat időpontja, azaz kb. két hét áll
+  rendelkezésre minden feladathoz. Az összes házi helyes megoldása feltétele a vizsgázásnak.
+- Vizsga: vizsgaidőszakban, géptermi feladatmegoldás. A tárgyra kapott jegyet a
+  vizsga határozza meg.
 
 #### Tematika
 
@@ -38,4 +41,4 @@
 
 #### Infrastruktúra
 
-- Compiler installáció: legcélszerűbb [Haskell Platform](https://www.haskell.org/platform/) vagy [stack](https://docs.haskellstack.org/en/stable/README/) segítségével. 
+- Compiler installáció: legcélszerűbb [Haskell Platform](https://www.haskell.org/platform/) vagy [stack](https://docs.haskellstack.org/en/stable/README/) segítségével. Szerkesztéshez megfelel tetszőleges szerkesztő GHCI-vel, de nyilván használható szofisztikáltabb környezet (emacs haskell-mode, VSCode haskell), aki ismer ilyet.
