@@ -30,8 +30,7 @@
 
 #### Anyagok
 
-- Minden előadás/gyakorlat után jegyzet elérhető lesz a [notes](notes) mappában.
-- Opcionális gyakorlófeladat szintén elérhető lesz minden gyakorlat után ebben a github repóban és BEAD-on.
+- Minden előadás/gyakorlat után órai feladatok és jegyzet elérhető lesz a [notes](notes) mappában.
 - Ajánlott irodalom: http://learnyouahaskell.com/chapters, illetve https://en.wikibooks.org/wiki/Haskell. További specifikus
   irodalom órai jegyzetekben lehet hivatkozva.
 
