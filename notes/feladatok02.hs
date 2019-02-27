@@ -1,3 +1,9 @@
+-- notes/feladatok02.hs
+
+-- GHCI használata:
+-- :t    kifejezés típusát lekérdezni
+-- :r    újratölteni fájlt
+-- :i    információ (pl típusosztályoknál: instane-ok method-ok listázása)
 
 
 -- 1. Definiáld a binárisan ágazó leveles fák típusát "Tree a"-ként. Minden
