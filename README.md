@@ -3,7 +3,7 @@
 #### Elérhetőségek
 
 - Kovács András, email: kovacsandras @ inf.elte.hu (szóközök nélkül).
-- Konzultáció: kedd 17:30-19:00, 2.620 szoba.
+- Konzultáció: hétfő 17:00-18:00, 2.620 szoba.
 - Feladatok beadásának helye: https://bead.inf.elte.hu/
   + Ide regisztrálni kell ugyanazzal a névvel/jelszóval, mint amivel labor
     gépekbe lehet belépni, a gyakorlati csoportot pedig felvenni.
@@ -30,8 +30,7 @@
 
 #### Anyagok
 
-- Minden előadás/gyakorlat után jegyzet elérhető lesz a [notes](notes) mappában.
-- Opcionális gyakorlófeladat szintén elérhető lesz minden gyakorlat után ebben a github repóban és BEAD-on.
+- Minden előadás/gyakorlat után órai feladatok és jegyzet elérhető lesz a [notes](notes) mappában.
 - Ajánlott irodalom: http://learnyouahaskell.com/chapters, illetve https://en.wikibooks.org/wiki/Haskell. További specifikus
   irodalom órai jegyzetekben lehet hivatkozva.
 
