@@ -75,6 +75,9 @@ sepEndBy1 = undefined
 --   []
 --   [     ]
 -- Használj ws-t a szóközök olvasásához.
+
+
+
 -- Add vissza a számjegyek mint karakterek listáját.
 digitList :: Parser String
 digitList = undefined
@@ -93,3 +96,14 @@ digitListTrailingComma = undefined
 --   "((()()))"
 parenExpr :: Parser ()
 parenExpr = undefined
+
+
+-- Zárójelek + számliterálok + összeadás
+-- lehet whitespace is minden között
+
+-- (12 + 0)
+--  10 + 10
+--  10 + 10 + 10 + 10
+
+expr :: Parser ()
+expr = undefined
