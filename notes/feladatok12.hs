@@ -206,11 +206,11 @@ type Env   = [(String, Val)]
 type EvalM = StateT Env (ExceptT String IO)
 
 -- | Evaluate an expression.
-evalExp :: EvalM Val
+evalExp :: Exp -> EvalM Val
 evalExp = undefined
 
 -- | Evaluate a statement.
-evalStatement :: EvalM ()
+evalStatement :: Statement -> EvalM ()
 evalStatement = undefined
 
 -- | Parse and evaluate a string as a Program.
