@@ -1,4 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving, LambdaCase #-}
+{-# OPTIONS_GHC -Wincomplete-patterns #-}
 
 import Control.Applicative
 import Control.Monad
@@ -206,13 +207,119 @@ type Env   = [(String, Val)]
 type EvalM = StateT Env (ExceptT String IO)
 
 -- | Evaluate an expression.
-evalExp :: EvalM Val
-evalExp = undefined
+evalExp :: Exp -> EvalM Val
+evalExp = \case
+  Add e1 e2      -> (,) <$> evalExp e1 <*> evalExp e2 >>= \case
+                      (VInt n, VInt m) -> pure (VInt (n + m))
+                      _                -> throwError "non-number argument in addition"
+  Mul e1 e2      -> (,) <$> evalExp e1 <*> evalExp e2 >>= \case
+                      (VInt n, VInt m) -> pure (VInt (n * m))
+                      _                -> throwError "non-number argument in multiplication"
+  Sub e1 e2      -> (,) <$> evalExp e1 <*> evalExp e2 >>= \case
+                      (VInt n, VInt m) -> pure (VInt (n - m))
+                      _                -> throwError "non-number argument in subtraction"
+  EQ e1 e2       -> (,) <$> evalExp e1 <*> evalExp e2 >>= \case
+                      (VInt n , VInt m  ) -> pure (VBool (n == m))
+                      (VBool b, VBool b') -> pure (VBool (b == b'))
+                      _                   -> throwError "differently typed arguments in =="
+  LT e1 e2       -> (,) <$> evalExp e1 <*> evalExp e2 >>= \case
+                      (VInt n, VInt m) -> pure (VBool (n < m))
+                      _                -> throwError "non-number argument in <"
+  BoolOr e1 e2   -> (,) <$> evalExp e1 <*> evalExp e2 >>= \case
+                      (VBool b, VBool b') -> pure (VBool (b || b'))
+                      _                   -> throwError "non-Bool argument in ||"
+  BoolAnd e1 e2  -> (,) <$> evalExp e1 <*> evalExp e2 >>= \case
+                      (VBool b, VBool b') -> pure (VBool (b && b'))
+                      _                   -> throwError "non-Bool argument in &&"
+  BoolNot e      -> evalExp e >>= \case
+                      VBool b -> pure (VBool (not b))
+                      _       -> throwError "non-Bool argument in Boolean negation"
+  IntLit n       -> pure (VInt n)
+  BoolLit b      -> pure (VBool b)
+  ReadInt        -> VInt . read <$> liftIO getLine
+  Var x          -> (lookup x <$> get) >>= \case
+                      Nothing -> throwError "name not in scope"
+                      Just v  -> pure v
+
 
 -- | Evaluate a statement.
-evalStatement :: EvalM ()
-evalStatement = undefined
+evalStatement :: Statement -> EvalM ()
+evalStatement = \case
+  Assign x e -> do
+    v <- evalExp e
+    modify $ \env -> case span ((/=x) . fst) env of
+      (as, _:bs) -> as ++ (x, v):bs
+      (as, _   ) -> (x, v):as
+  While e b ->
+    evalExp e >>= \case
+      VBool True  -> evalBlock b >> evalStatement (While e b)
+      VBool False -> pure ()
+      _           -> throwError "non-Bool value in \"while\" condition"
+  Block b ->
+    evalBlock b
+  If e b ->
+    evalExp e >>= \case
+      VBool True  -> evalBlock b
+      VBool False -> pure ()
+      _           -> throwError "non-Bool value in \"if\" condition"
+  IfElse e b1 b2 ->
+    evalExp e >>= \case
+      VBool True  -> evalBlock b1
+      VBool False -> evalBlock b2
+      _           -> throwError "non-Bool value in \"if\" condition"
+  Print e ->
+    evalExp e >>= \case
+      VInt n  -> liftIO $ print n
+      VBool b -> liftIO $ print b
 
--- | Parse and evaluate a string as a Program.
+-- | Evaluate a block
+evalBlock :: Block -> EvalM ()
+evalBlock block = do
+  env <- get
+  mapM_ evalStatement block
+  -- we drop all locally declared variables after we exit a block
+  modify $ \env' -> drop (length env' - length env) env'
+
+-- | Parse and evaluate a string as a program.
 interpret :: String -> IO ()
-interpret src = undefined
+interpret src = case run pProgram src of
+  Nothing     -> putStrLn "parse error"
+  Just (p, _) -> do
+    runExceptT (runStateT (evalBlock p) []) >>= \case
+      Left err -> putStrLn err
+      Right _  -> pure ()
+
+-- tests
+--------------------------------------------------------------------------------
+
+p1 = interpret $ unlines [
+ "x := 0;",
+ "{",
+ "   y := 100;",
+ "   x := x + y",
+ "};",
+ "print x"
+ ]
+
+p2 = interpret $ unlines [
+    "x := 0;",
+    "while x < 100 do",
+    "  y := 10;",
+    "  x := x + y",
+    "end;",
+    "print y"
+  ]
+
+p3 = interpret $ unlines [
+  "count := readInt;",
+  "x := 0;",
+  "y := 1;",
+  "i := 0;",
+  "while (i < count) do",
+  "  print x;",
+  "  tmp := x + y;",
+  "  x := y;",
+  "  y := tmp;",
+  "  i := i + 1",
+  "end  "
+  ]
